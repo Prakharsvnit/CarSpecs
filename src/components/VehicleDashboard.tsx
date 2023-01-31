@@ -1,4 +1,5 @@
 import { Container } from '@mui/material'
+import "../scss/Vehicle.scss";
 import { useState,useEffect } from 'react'
 import  VehicleCard  from './VehicleCard'
 import VehicleApicall from "../VehicleApiCall"
@@ -19,7 +20,7 @@ const VehicleDashboard = () => {
       }, []);
 
   return (
-    <Container maxWidth="xl" className='dashboard-container'>
+    <Container maxWidth="xl">
         <VehicleCard vehicles={vehicles} />
     </Container>
   )
