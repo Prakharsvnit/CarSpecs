@@ -1,4 +1,4 @@
-export interface VehiclesInterface {
+export interface Vehicles {
   id: number;
   make: string;
   model: string;
@@ -12,4 +12,6 @@ export interface VehiclesInterface {
   gearBox: string;
 }
 
-export type Vehicles = VehiclesInterface[] | VehiclesInterface 
+export interface VehiclesCard {
+  vehicles: Vehicles[]
+}

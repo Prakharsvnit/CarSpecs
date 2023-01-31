@@ -1,4 +1,6 @@
+import { Container } from '@mui/material'
 import { useState,useEffect } from 'react'
+import  VehicleCard  from './VehicleCard'
 import VehicleApicall from "../VehicleApiCall"
 import {baseURL} from "../constants"
 import {Vehicles} from "../types"
@@ -15,9 +17,11 @@ const VehicleDashboard = () => {
       useEffect(() => {
         fetchVehicles();
       }, []);
-    
+
   return (
-    <></>
+    <Container maxWidth="xl" className='dashboard-container'>
+        <VehicleCard vehicles={vehicles} />
+    </Container>
   )
 }
 

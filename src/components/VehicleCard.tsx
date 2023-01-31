@@ -1,27 +1,31 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import "../scss/VehicleCard.scss"
+import "../scss/VehicleCard.scss";
+import { VehiclesCard } from "../types";
 
-const VehicleCard = () => {
+const VehicleCard = (props: VehiclesCard) => {
+  const { vehicles } = props;
+
   return (
-  
     <Card className="card-container" variant="outlined">
-      <CardContent className="card-content">
-      <Typography align="center" variant="h5" gutterBottom>
-          Vehicle Info
-        </Typography>
-        <Typography  variant="h6" component="h2"  gutterBottom>
-          Make:
-        </Typography>
-        <Typography variant="h6" component="h2" gutterBottom>
-          Color:
-        </Typography>
-        <Typography variant="h6" component="h2" gutterBottom>
-          Model
-        </Typography>
-        <Typography variant="h6" component="h2" gutterBottom>
-          Version:
-        </Typography>
-      </CardContent>
+      {vehicles.map((vehicle) => (
+        <CardContent key={vehicle.id}>
+          <Typography sx={{ fontWeight: "bold" }} variant="h5" gutterBottom>
+            Vehicle Info
+          </Typography>
+          <Typography variant="h6" component="h2" gutterBottom>
+            Make:{vehicle.make}
+          </Typography>
+          <Typography variant="h6" component="h2" gutterBottom>
+            Color:{vehicle.color}
+          </Typography>
+          <Typography variant="h6" component="h1" gutterBottom>
+            Model{vehicle.model}
+          </Typography>
+          <Typography variant="h6" component="h2" gutterBottom>
+            Version:{vehicle.modelVersion}
+          </Typography>
+        </CardContent>
+      ))}
     </Card>
   );
 };
