@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import "../scss/Vehicle.scss";
+import "../scss/VehicleCard.scss";
 import { VehiclesCard } from "../types";
 
 const VehicleCard = (props: VehiclesCard) => {
