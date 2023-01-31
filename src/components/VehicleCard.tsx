@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 import "../scss/VehicleCard.scss"
 
@@ -11,7 +10,7 @@ const VehicleCard = () => {
           Vehicle Info
         </Typography>
         <Typography  variant="h6" component="h2"  gutterBottom>
-          Make
+          Make:
         </Typography>
         <Typography variant="h6" component="h2" gutterBottom>
           Color:

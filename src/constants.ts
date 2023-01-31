@@ -1,0 +1,1 @@
+export const baseURL = "http://vaibhavarora2-001-site8.itempurl.com/api/vehicles/"
