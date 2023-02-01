@@ -1,4 +1,5 @@
 import  Header  from "./components/Header"
+import VehicleCategoryFilter from "./components/VehicleCategoryFilter";
 import VehicleDashboard from "./components/VehicleDashboard";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <Header />
       <VehicleDashboard />
+      <VehicleCategoryFilter />
     </>
   );
 }

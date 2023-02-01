@@ -15,3 +15,7 @@ export interface Vehicles {
 export interface VehiclesCard {
   vehicles: Vehicles[]
 }
+
+export interface OptionType {
+  Category: string
+}
