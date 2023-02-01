@@ -2,17 +2,16 @@ import { TextField, Autocomplete } from "@mui/material";
 import parse from "autosuggest-highlight/parse";
 import match from "autosuggest-highlight/match";
 import { VehicleCategories} from "../constants";
-import { OptionType } from "../types";
 import { useState } from "react";
 
-const VehicleCategoryFilter = () => {
-  const [vehicleCategory, setVehicleCategory] = useState("");
-  
-  const handleChange = (event: React.ChangeEvent<{}>, value: OptionType | null) => {
+const VehicleCategoryFilter = ({fetchCategory}: {fetchCategory: (vehicleCategory: string) => void}) => {
+
+  const [vehicleCategory,setVehicleCategory] = useState<string>('')
+
+  const handleChange = (event: React.SyntheticEvent<Element,Event>, value: {Category : string} | null) => {
     if (value) {
-      setVehicleCategory(value.Category);
-    } else {
-      setVehicleCategory('');
+      setVehicleCategory(value.Category)
+      fetchCategory(value.Category)
     }
   };
   return (

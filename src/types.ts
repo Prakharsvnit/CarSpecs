@@ -16,6 +16,6 @@ export interface VehiclesCard {
   vehicles: Vehicles[]
 }
 
-export interface OptionType {
-  Category: string
+export interface fetchCategory {
+  (vehicleCategory: string) : void;
 }

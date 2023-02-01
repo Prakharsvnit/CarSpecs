@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { Container, Pagination } from "@mui/material";
 import { useState, useEffect, ChangeEvent } from "react";
 import VehicleCard from "./VehicleCard";
+import VehicleCategoryFilter from "./VehicleCategoryFilter";
 import VehicleApicall from "../VehicleApiCall";
 import { baseURL } from "../constants";
 import { Vehicles } from "../types";
@@ -9,12 +10,16 @@ import { Vehicles } from "../types";
 const VehicleDashboard = () => {
   const [vehicles, setVehicles] = useState<Vehicles[]>([]);
   const [page, setPage] = useState<number>(1);
-  const [vehicleCategory, setVehicleCategory] = useState<string>("")
+  const [vehicleCategory, setVehicleCategory] = useState<string | null>("")
+
+  const fetchCategory = (vehicleCategory:string | null) => {
+    setVehicleCategory(vehicleCategory)
+  }
 
   //type for onChange event is given here https://mui.com/material-ui/api/pagination/
   const handlePageChange = (event:ChangeEvent<unknown>,page:number) => {
     setPage(page);
-  }
+    };
 
   const fetchCategoryVehicles = useCallback(async() =>  {
     const queryParams = `MakeCategory=${vehicleCategory}`
@@ -28,15 +33,6 @@ const VehicleDashboard = () => {
     setVehicles(response.data)
   },[page])
 
-  const fetchVehicles = async () => {
-    const response = await VehicleApicall(baseURL, "");
-    setVehicles(response.data);
-  };
-
-  useEffect(() => {
-    fetchVehicles();
-  }, []);
-
   useEffect(() => {
     fetchPaginationVehicles();
   },[fetchPaginationVehicles])
@@ -45,9 +41,13 @@ const VehicleDashboard = () => {
     fetchCategoryVehicles();
   },[fetchCategoryVehicles])
 
+  console.log("vehicleCategory",vehicleCategory)
+
+
   return (
     <>
       <Container maxWidth="xl">
+        <VehicleCategoryFilter fetchCategory={fetchCategory}/>
         <VehicleCard vehicles={vehicles} />
         <Pagination sx={{justifyContent:'center',alignItems:'center',display:'flex'}} page={page} count={10} boundaryCount={10} color="primary" size="large" defaultPage={1} onChange={handlePageChange} />
       </Container>
