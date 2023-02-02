@@ -13,3 +13,8 @@
 2. Material UI library for design.
 3. Sass for CSS Preprocessor
 4. Git version control
+
+## Note:
+
+The Swagger API used by this application doesn't responds often.
+You can check the Headers and Response tabs in Network tab in the developers tools for more information.

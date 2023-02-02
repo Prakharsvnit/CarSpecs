@@ -41,9 +41,6 @@ const VehicleDashboard = () => {
     fetchCategoryVehicles();
   },[fetchCategoryVehicles])
 
-  console.log("vehicleCategory",vehicleCategory)
-
-
   return (
     <>
       <Container maxWidth="xl">
